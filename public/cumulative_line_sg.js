@@ -16,8 +16,8 @@ define(function (require) {
     // return the visType object, which kibana will use to display and configure new
     // Vis object of this type.
     return new TemplateVisType({
-      name: 'line-sg',
-      title: 'Line-sg',
+      name: 'cumulative-line-sg',
+      title: 'Cumulative-line-sg',
       description: 'This plugin allows the creation of a view with several types of graphics on Kibana Version 4.2.2, 4.3.0, 4.4.0, 4.5.0',
       icon: 'fa-diamond',
       template: require('plugins/cumulative_line_sg/cumulative_line_sg.html'),
