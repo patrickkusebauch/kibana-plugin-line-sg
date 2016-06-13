@@ -28,11 +28,11 @@ Contenu
     +-- bower_components
     ¦   +-- c3
     ¦   +-- moment
-    +-- line_sg_controller.js
-    +-- line_sg.html
-    +-- line_sg.js
-    +-- line_sg.less
-    +-- line_sg_params.html
+    +-- cumulative_line_sg_controller.js
+    +-- cumulative_line_sg.html
+    +-- cumulative_line_sg.js
+    +-- cumulative_line_sg.less
+    +-- cumulative_line_sg_params.html
     +-- styles
         +-- accordion.css
 ```
@@ -57,5 +57,5 @@ Désinstallation
 ---------------
 
 ```
-	$ bin/kibana plugin  --remove line_sg
+	$ bin/kibana plugin  --remove cumulative_line_sg
 ```

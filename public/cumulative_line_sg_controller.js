@@ -3,7 +3,7 @@ define(function (require) {
   var d3 = require('d3');
   var c3 = require('./bower_components/c3');
   var moment = require('./bower_components/moment/moment');
-  var module = require('ui/modules').get('kibana/line_sg', ['kibana']);
+  var module = require('ui/modules').get('kibana/cumulative_line_sg', ['kibana']);
 
   module.controller('KbnLineVisController', function ($scope, $element, $window, Private) {
 
@@ -96,7 +96,8 @@ define(function (require) {
 			tmp.push('data0');
 		}
 		for (var key in data) {
-        	  	tmp.push(data[key][i]);
+                var last = (tmp.length == 1) ? 0 : tmp[tmp.length - 1];
+        	  	tmp.push(data[key][i] + last);
 			if ( typeof data[key][i] === 'string') {
 				typex = "category";
 			}
