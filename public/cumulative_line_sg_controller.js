@@ -86,22 +86,29 @@ define(function (require) {
     $scope.processTableGroups = function (tableGroups) {
       tableGroups.tables.forEach(function (table) {
         table.columns.forEach(function (column, i) {
-        	var tmp = [];
+        var tmp = [];
 		var data = table.rows;
-		if (i > 0){
+        var key;
+		if (i > 0){ // these are the actual datapoints
 			group[i] = column.title;
 			label[column.title] = column.title;
 			tmp.push(column.title);
-		} else {
-			tmp.push('data0');
-		}
-		for (var key in data) {
+            for (key in data) {
                 var last = (tmp.length == 1) ? 0 : tmp[tmp.length - 1];
-        	  	tmp.push(data[key][i] + last);
-			if ( typeof data[key][i] === 'string') {
-				typex = "category";
-			}
-		};
+                tmp.push(data[key][i] + last);
+                if ( typeof data[key][i] === 'string') {
+                    typex = "category";
+                }
+            }
+		} else { // this is just the X axis values
+			tmp.push('data0');
+            for (key in data) {
+                tmp.push(data[key][i]);
+                if ( typeof data[key][i] === 'string') {
+                    typex = "category";
+                }
+            }
+		}
 		metrics.push(tmp);
 	});
       });
